@@ -1,4 +1,5 @@
 const cards = document.querySelector('.cards');
+const bookBtn = document.querySelector('.new-book');
 
 let library = [];
 
@@ -37,5 +38,8 @@ Book.prototype.addBookToLibrary = function() {
 }
 
 const book = new Book('Harry Potter', 'JK Rowling', '300', 'read');
+const book1 = new Book('Atomic Habits', 'James Clear', '300', 'read');
 book.addBookToLibrary();
+book1.addBookToLibrary();
+
 createCard();
