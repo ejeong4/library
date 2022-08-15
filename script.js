@@ -13,13 +13,19 @@ function createCard() {
     library.forEach(Element => {
         const cardDiv = document.createElement('div');
         const titleDiv = document.createElement('h1')
-        const infoDiv = document.createElement('h3');
+        const authorDiv = document.createElement('h3');
+        const pagesDiv = document.createElement('h3');
+        const readDiv = document.createElement('h3');
 
-        cardDiv.appendChild(titleDiv);
-        cardDiv.appendChild(infoDiv);
+        cardDiv.classList.add('cardDiv');
+        [titleDiv, authorDiv, pagesDiv, readDiv].forEach(
+            Element => cardDiv.appendChild(Element)
+        );
 
         titleDiv.textContent = `Title: ${Element.title}`;
-        infoDiv.textContent = `Author: ${Element.author} Pages: ${Element.pages} ${Element.read}`;
+        authorDiv.textContent = `Author: ${Element.author}`;
+        pagesDiv.textContent = `Pages: ${Element.pages} ${Element.read}`;
+        readDiv.textContent = Element.read;
 
         cards.appendChild(cardDiv);
         return cardDiv;
