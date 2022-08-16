@@ -1,5 +1,6 @@
 const cards = document.querySelector('.cards');
 const bookBtn = document.querySelector('.new-book');
+const body = document.querySelector('body');
 
 let library = [];
 
@@ -25,13 +26,17 @@ function createCard() {
 
         titleDiv.textContent = `Title: ${Element.title}`;
         authorDiv.textContent = `Author: ${Element.author}`;
-        pagesDiv.textContent = `Pages: ${Element.pages} ${Element.read}`;
+        pagesDiv.textContent = `Pages: ${Element.pages}`;
         readDiv.textContent = Element.read;
 
         cards.appendChild(cardDiv);
         return cardDiv;
     })
 };
+
+bookBtn.addEventListener('click', () => {
+
+})
 
 Book.prototype.addBookToLibrary = function() {
     library.push(this);

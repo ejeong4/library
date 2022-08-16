@@ -1,4 +1,14 @@
 .cardDiv {
     background-color: antiquewhite;
     width: 250px;
+    height: 250px;
+}
+
+.form {
+    width: 300px;
+    height: 400px;
+    background-color: lightgrey;
+    position: absolute;
+    top: 50px;
+    left: 20%;
 }
