@@ -9,6 +9,7 @@ function Book(title, author, pages, read) {
     this.author = author;
     this.pages = pages;
     this.read = read;
+    this.index = library.indexOf(this);
 }
 
 function createCard() {
