@@ -37,10 +37,11 @@ function createCard(book) {
         Element => cardDiv.appendChild(Element)
     );
 
-    titleDiv.textContent = `Title: ${book.title}`;
-    authorDiv.textContent = `Author: ${book.author}`;
-    pagesDiv.textContent = `Pages: ${book.pages}`;
-    readDiv.textContent = book.read;
+    titleDiv.textContent = `${book.title}`;
+    authorDiv.textContent = `${book.author}`;
+    pagesDiv.textContent = `${book.pages} pages`;
+    readDiv.textContent = `${book.read}`;
+    // readDiv.setAttribute('style', 'width: 50px; height: 30px; background-color: red;');
 
     cards.appendChild(cardDiv);
     return cardDiv;
@@ -55,8 +56,9 @@ function formReset() {
 }
 
 formSubmit.addEventListener('click', () => {
+    console.log(formRead.value)
     let readValue = '';
-    if (formRead.value == 'on') {
+    if (formRead.checked === true) {
         readValue += 'read';
     }
     const book = new Book(formTitle.value, formAuthor.value, formPages.value, readValue);
@@ -67,3 +69,5 @@ formSubmit.addEventListener('click', () => {
 
 bookBtn.addEventListener('click', () => form.setAttribute('style', 'display: block;'));
 formClose.addEventListener('click', formReset());
+
+createCard(new Book('Atomic Habits', 'James Clear', 343, 'read'));
