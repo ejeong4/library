@@ -1,6 +1,9 @@
 const cards = document.querySelector('.cards');
 const bookBtn = document.querySelector('.new-book');
 const body = document.querySelector('body');
+const form = document.querySelector('.form');
+const formClose = document.querySelector('.form-close');
+const formInputs = document.querySelectorAll('.form-input');
 
 let library = [];
 
@@ -9,7 +12,6 @@ function Book(title, author, pages, read) {
     this.author = author;
     this.pages = pages;
     this.read = read;
-    this.index = library.indexOf(this);
 }
 
 function createCard() {
@@ -35,9 +37,12 @@ function createCard() {
     })
 };
 
-bookBtn.addEventListener('click', () => {
+bookBtn.addEventListener('click', () => form.setAttribute('style', 'display: block;'));
 
-})
+formClose.addEventListener('click', () => {
+    formInputs.forEach((input) => { input.value = ''; });
+    form.setAttribute('style', 'display: none;');
+});
 
 Book.prototype.addBookToLibrary = function() {
     library.push(this);
