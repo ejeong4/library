@@ -67,7 +67,7 @@ formSubmit.addEventListener('click', () => {
     formReset();
 });
 
-bookBtn.addEventListener('click', () => form.setAttribute('style', 'display: block;'));
+bookBtn.addEventListener('click', () => form.setAttribute('style', 'display: flex;'));
 formClose.addEventListener('click', formReset);
 
 createCard(new Book('Atomic Habits', 'James Clear', 343, 'read'));
