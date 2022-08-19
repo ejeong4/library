@@ -40,7 +40,10 @@ function createCard() {
 bookBtn.addEventListener('click', () => form.setAttribute('style', 'display: block;'));
 
 formClose.addEventListener('click', () => {
-    formInputs.forEach((input) => { input.value = ''; });
+    formInputs.forEach((input) => {
+        input.value = '';
+        input.checked = false;
+    });
     form.setAttribute('style', 'display: none;');
 });
 
