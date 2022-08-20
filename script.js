@@ -44,7 +44,7 @@ function createCard(book) {
 
     titleDiv.textContent = `${book.title}`;
     authorDiv.textContent = `${book.author}`;
-    pagesDiv.textContent = `${book.pages} pages`;
+    pagesDiv.textContent = `${book.pages}`;
     readDiv.textContent = `${book.read}`;
     removeBtn.textContent = 'x';
 
@@ -65,17 +65,27 @@ function formReset() {
     form.setAttribute('style', 'display: none;');
 }
 
-formSubmit.addEventListener('click', () => {
-    console.log(formRead.value)
+function enterForm() {
+    let pagesValue = '';
     let readValue = '';
+
+    if (formTitle.value === '' || formAuthor.value === '') {
+        alert('Please fill out author or title');
+        return;
+    }
+    if (formPages.value != '') {
+        pagesValue += formPages.value + ' pages';
+    }
     if (formRead.checked === true) {
         readValue += 'Read';
     }
-    const book = new Book(formTitle.value, formAuthor.value, formPages.value, readValue);
+    const book = new Book(formTitle.value, formAuthor.value, pagesValue, readValue);
     book.addBookToLibrary();
     createCard(book);
     formReset();
-});
+}
+
+formSubmit.addEventListener('click', enterForm);
 
 removeToggle.addEventListener('click', () => {
     document.querySelectorAll('.card-remove-btn').forEach((button) => {
