@@ -32,6 +32,7 @@ function createCard(book) {
     const pagesDiv = document.createElement('h3');
     const readDiv = document.createElement('h3');
 
+    readDiv.classList.add('readDiv');
     cardDiv.classList.add('cardDiv');
     [titleDiv, authorDiv, pagesDiv, readDiv].forEach(
         Element => cardDiv.appendChild(Element)
@@ -59,7 +60,7 @@ formSubmit.addEventListener('click', () => {
     console.log(formRead.value)
     let readValue = '';
     if (formRead.checked === true) {
-        readValue += 'read';
+        readValue += 'Read';
     }
     const book = new Book(formTitle.value, formAuthor.value, formPages.value, readValue);
     book.addBookToLibrary();
@@ -70,4 +71,4 @@ formSubmit.addEventListener('click', () => {
 bookBtn.addEventListener('click', () => form.setAttribute('style', 'display: flex;'));
 formClose.addEventListener('click', formReset);
 
-createCard(new Book('Atomic Habits', 'James Clear', 343, 'read'));
+createCard(new Book('Atomic Habits', 'James Clear', 343, 'Read'));
