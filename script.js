@@ -34,7 +34,7 @@ function createCard(book) {
     const readDiv = document.createElement('h3');
     const removeBtn = document.createElement('button');
 
-    removeBtn.setAttribute('id', 'card-remove-btn');
+    removeBtn.classList.add('card-remove-btn');
 
     cardDiv.classList.add('cardDiv');
     cardDiv.setAttribute('data-index', `${library.length-1}`);
@@ -78,9 +78,8 @@ formSubmit.addEventListener('click', () => {
 });
 
 removeToggle.addEventListener('click', () => {
-    document.querySelectorAll('#card-remove-btn').forEach((button) => {
-        console.log('hi');
-        button.classList.add('card-remove-btn-toggle');
+    document.querySelectorAll('.card-remove-btn').forEach((button) => {
+        button.classList.toggle('card-remove-btn-toggle');
     })
 })
 
