@@ -33,6 +33,7 @@ function createCard(book) {
     const readDiv = document.createElement('h3');
     const removeBtn = document.createElement('button');
 
+
     cardDiv.classList.add('cardDiv');
     cardDiv.setAttribute('data-index', `${library.length-1}`);
     [removeBtn, titleDiv, authorDiv, pagesDiv, readDiv].forEach(
@@ -43,6 +44,11 @@ function createCard(book) {
     authorDiv.textContent = `${book.author}`;
     pagesDiv.textContent = `${book.pages} pages`;
     readDiv.textContent = `${book.read}`;
+
+    removeBtn.addEventListener('click', () => {
+        library.splice(cardDiv.getAttribute('data-index'), 1);
+        cardDiv.remove();
+    })
 
     cards.appendChild(cardDiv);
     return cardDiv;
