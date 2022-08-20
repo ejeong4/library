@@ -31,10 +31,11 @@ function createCard(book) {
     const authorDiv = document.createElement('h3');
     const pagesDiv = document.createElement('h3');
     const readDiv = document.createElement('h3');
+    const removeBtn = document.createElement('button');
 
-    readDiv.classList.add('readDiv');
     cardDiv.classList.add('cardDiv');
-    [titleDiv, authorDiv, pagesDiv, readDiv].forEach(
+    cardDiv.setAttribute('data-index', `${library.length-1}`);
+    [removeBtn, titleDiv, authorDiv, pagesDiv, readDiv].forEach(
         Element => cardDiv.appendChild(Element)
     );
 
@@ -42,7 +43,6 @@ function createCard(book) {
     authorDiv.textContent = `${book.author}`;
     pagesDiv.textContent = `${book.pages} pages`;
     readDiv.textContent = `${book.read}`;
-    // readDiv.setAttribute('style', 'width: 50px; height: 30px; background-color: red;');
 
     cards.appendChild(cardDiv);
     return cardDiv;
@@ -71,4 +71,6 @@ formSubmit.addEventListener('click', () => {
 bookBtn.addEventListener('click', () => form.setAttribute('style', 'display: flex;'));
 formClose.addEventListener('click', formReset);
 
-createCard(new Book('Atomic Habits', 'James Clear', 343, 'Read'));
+const firstBook = new Book('Atomic Habits', 'James Clear', 343, 'Read');
+firstBook.addBookToLibrary();
+createCard(firstBook);
