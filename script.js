@@ -70,7 +70,7 @@ function enterForm() {
     let readValue = '';
 
     if (formTitle.value === '' || formAuthor.value === '') {
-        alert('Please fill out author or title');
+        alert('Please fill out author and title');
         return;
     }
     if (formPages.value != '') {
