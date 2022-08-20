@@ -97,6 +97,6 @@ bookBtn.addEventListener('click', () => form.setAttribute('style', 'display: fle
 formClose.addEventListener('click', formReset);
 
 
-const firstBook = new Book('Atomic Habits', 'James Clear', 343, 'Read');
+const firstBook = new Book('Atomic Habits', 'James Clear', '', 'Read');
 firstBook.addBookToLibrary();
 createCard(firstBook);

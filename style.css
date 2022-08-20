@@ -7,6 +7,7 @@
 
 body {
     background-color: var(--light-color);
+    animation: fadein 0.3s;
 }
 
 h1 {
@@ -21,6 +22,37 @@ h3 {
 
 button {
     font-size: 50px;
+}
+
+@keyframes fadein {
+    0% {
+        opacity: 0%;
+    }
+    100% {
+        opacity: 100%;
+    }
+}
+
+@keyframes slideup {
+    0% {
+        opacity: 0%;
+        margin-top: 100px;
+    }
+    100% {
+        opacity: 100%;
+        margin-top: 0px;
+    }
+}
+
+@keyframes slideleft {
+    0% {
+        opacity: 0%;
+        right: -100px;
+    }
+    100% {
+        opacity: 100%;
+        right: 30px;
+    }
 }
 
 :root {
@@ -63,6 +95,12 @@ button {
     background-color: var(--add-color);
 }
 
+button:hover {
+    background-color: var(--dark-color);
+    color: var(--light-color);
+    cursor: pointer;
+}
+
 .cards {
     display: grid;
     grid-template-columns: repeat(4, minmax(300px, 25%));
@@ -77,6 +115,7 @@ button {
     flex-direction: column;
     justify-content: center;
     position: relative;
+    animation: slideup 0.7s;
 }
 
 .cardDiv>h1,
@@ -117,6 +156,7 @@ button {
     right: 30px;
     border: 3px solid var(--dark-color);
     background-color: var(--light-color);
+    animation: slideleft 0.7s;
 }
 
 .form-submit {
