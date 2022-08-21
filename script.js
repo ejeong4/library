@@ -106,8 +106,3 @@ removeToggle.addEventListener('click', () => {
 
 bookBtn.addEventListener('click', () => form.setAttribute('style', 'display: flex;'));
 formClose.addEventListener('click', formReset);
-
-
-const firstBook = new Book('Atomic Habits', 'James Clear', '', '');
-firstBook.addBookToLibrary();
-createCard(firstBook);
