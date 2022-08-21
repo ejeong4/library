@@ -31,9 +31,10 @@ function createCard(book) {
     const titleDiv = document.createElement('h1')
     const authorDiv = document.createElement('h3');
     const pagesDiv = document.createElement('h3');
-    const readDiv = document.createElement('h3');
+    const readDiv = document.createElement('button');
     const removeBtn = document.createElement('button');
 
+    readDiv.classList.add('read-div');
     removeBtn.classList.add('card-remove-btn');
 
     cardDiv.classList.add('cardDiv');
@@ -51,6 +52,16 @@ function createCard(book) {
     removeBtn.addEventListener('click', () => {
         library.splice(cardDiv.getAttribute('data-index'), 1);
         cardDiv.remove();
+    })
+
+    readDiv.addEventListener('click', () => {
+        if (readDiv.textContent = '') {
+            readDiv.value == "OFF"
+            readDiv.classList.toggle('read-div-toggle');
+        } else {
+            readDiv.value == "ON"
+            readDiv.classList.toggle('read-div-toggle');
+        }
     })
 
     cards.appendChild(cardDiv);
@@ -77,7 +88,7 @@ function enterForm() {
         pagesValue += formPages.value + ' pages';
     }
     if (formRead.checked === true) {
-        readValue += 'Read';
+        readValue += '✔️';
     }
     const book = new Book(formTitle.value, formAuthor.value, pagesValue, readValue);
     book.addBookToLibrary();
@@ -97,6 +108,6 @@ bookBtn.addEventListener('click', () => form.setAttribute('style', 'display: fle
 formClose.addEventListener('click', formReset);
 
 
-const firstBook = new Book('Atomic Habits', 'James Clear', '', 'Read');
+const firstBook = new Book('Atomic Habits', 'James Clear', '', '');
 firstBook.addBookToLibrary();
 createCard(firstBook);
